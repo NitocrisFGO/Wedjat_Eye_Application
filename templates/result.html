@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Wedjat Eye Result</title>
+</head>
+<body>
+    <h1>Processing Result</h1>
+
+    <h2>Original Image</h2>
+    <img src="/uploads/{{ input_image }}" alt="Original Image" width="300">
+
+    <h2>Processed Image</h2>
+    <img src="/processed/{{ output_image }}" alt="Processed Image" width="300">
+
+    <button onclick="flagImage()">Flag as Problematic</button>
+
+    <!-- Add a button to return to the home page -->
+    <button onclick="goBackToHome()">Back to Home</button>
+
+    <script>
+        function flagImage() {
+            fetch("/flag", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ image_name: "{{ output_image }}" })
+            }).then(response => response.json()).then(data => {
+                alert(data.status);
+            });
+        }
+
+        function goBackToHome() {
+            window.location.href = "/super-resolution";
+        }
+    </script>
+</body>
+</html>
