@@ -58,9 +58,9 @@ def upload_and_process():
         output_image.save(processed_path, format="JPEG")
 
         # return result page
-        return render_template("result.html", input_image=file.filename, output_image="processed_" + file.filename)
+        return render_template("super_resolution_result.html", input_image=file.filename, output_image="processed_" + file.filename)
 
-    return render_template("index.html")
+    return render_template("super_resolution_homepage.html")
 
 
 # Tag Feedback Interface
@@ -89,5 +89,5 @@ def processed_file(filename):
 
 # 启动应用
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="127.0.0.1", port=5000, debug=True)
 
