@@ -20,10 +20,20 @@
         </nav>
     </header>
 
-    <div class="container">
-        <!-- The title is centered on the page -->
-        <h1 class="main-title">Wedjat Eye Project</h1>
-        <p class="subtitle">This is the homepage of the Wedjat Eye Project.</p>
+    <div class="carousel-container">
+        <div class="carousel">
+            {% for image in central_images %}
+            <div class="carousel-slide">
+                <a href="{{ image.link }}">
+                    <img src="{{ image.url }}" alt="{{ image.text }}">
+                    <div class="carousel-text">{{ image.text }}</div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </div>
+
 </body>
 </html>

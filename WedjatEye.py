@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, jsonify, send_file
+from flask import Flask, request, render_template, jsonify, send_file, url_for
 from PIL import Image
 import io
 
@@ -27,11 +27,17 @@ def super_resolution(input_image):
 # homepage routing
 @app.route("/")
 def homepage():
-    return render_template("homepage.html")
+    central_images = [
+        {"url": "/static/images/einstein.gif",
+         "text": "Give old photos a fresh look with more vivid colors!",
+         "link": url_for("super_resolution_process")},
+    ]
+    return render_template("homepage.html", central_images=central_images)
+
 
 # API for upload and process image
 @app.route("/super-resolution", methods=["GET", "POST"])
-def upload_and_process():
+def super_resolution_process():
     if request.method == "POST":
         if "file" not in request.files:
             return jsonify({"error": "No file part"})
@@ -87,7 +93,7 @@ def processed_file(filename):
     return send_file(os.path.join(app.config["PROCESSED_FOLDER"], filename))
 
 
-# 启动应用
+# start server
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True)
 
