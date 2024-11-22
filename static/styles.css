@@ -84,7 +84,7 @@ body.homepage_body {
 
 .carousel-container {
     position: relative;
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
     overflow: hidden;
     border-radius: 10px;
@@ -104,6 +104,8 @@ body.homepage_body {
 
 .carousel-slide img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
 }
 
@@ -119,28 +121,49 @@ body.homepage_body {
     font-size: 18px;
 }
 
-button.prev, button.next {
+
+
+.prev,
+.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    width: 50px;
+    height: 200px;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
+    font-size: 24px;
     border: none;
     cursor: pointer;
-    padding: 10px;
-    font-size: 18px;
-    border-radius: 50%;
     z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
 }
 
-button.prev {
+
+.prev {
     left: 10px;
 }
 
-button.next {
+
+.next {
     right: 10px;
 }
 
-button.prev:hover, button.next:hover {
+
+.prev:hover,
+.next:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.carousel-container {
+    position: relative;
+}
+
+.carousel-container .prev,
+.carousel-container .next {
+    height: auto;
 }

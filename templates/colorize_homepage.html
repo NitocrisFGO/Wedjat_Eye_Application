@@ -1,0 +1,19 @@
+<!-- templates/super_resolution_homepage.html -->
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Image colorization Page</title>
+</head>
+<body>
+    <h1>Image colorization Processing</h1>
+
+    <!-- link to go back homepage -->
+    <a href="/">Back to Homepage</a>
+
+    <form action="/colorize" method="post" enctype="multipart/form-data">
+        <label>Upload Image:</label>
+        <input type="file" name="file" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
