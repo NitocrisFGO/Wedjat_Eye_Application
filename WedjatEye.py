@@ -24,6 +24,7 @@ app.config["PROCESSED_FOLDER"] = PROCESSED_FOLDER
 TEST_IMAGE_PATH = "test/test.png"
 
 
+# load the colorize model
 def load_colorization_models():
     colorizer_eccv16 = eccv16(pretrained=True).eval()
     colorizer_siggraph17 = siggraph17(pretrained=True).eval()
