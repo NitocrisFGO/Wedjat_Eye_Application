@@ -162,7 +162,7 @@ def processed_file(filename):
 #     return response
 
 
-# start server
+# start the server
 if __name__ == "__main__":
     colorizer_eccv16, colorizer_siggraph17 = load_colorization_models()
     app.run(host="0.0.0.0", port=5000, debug=True)
