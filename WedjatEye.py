@@ -1,11 +1,6 @@
 from flask import Flask, request, render_template, jsonify, send_file, url_for
 import matplotlib.pyplot as plt
-from PIL import Image
 import torch
-from torchvision import transforms
-import cv2
-import numpy as np
-import torch.nn as nn
 from colorizers import *
 import io
 
